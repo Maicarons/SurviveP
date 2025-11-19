@@ -1,4 +1,4 @@
-# SurviveP - 基于Leaves的Minecraft生存服务器
+# SurviveP - 基于Leaves的Minecraft生存服务器整合包
 
 ![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21.8-blue)
 ![License](https://img.shields.io/github/license/Maicarons/SurviveP)
@@ -75,6 +75,14 @@ python3 edit_leaves_config.py
 本项目采用 [GPLv3 License](LICENSE) 开源协议。
 
 Project forked from [SurviveX](https://github.com/KiteMC/SurviveX) with [GPLv3 License](https://github.com/KiteMC/SurviveX/LICENSE).
+
+> [!WARNING]
+> 关于插件版权的重要声明
+>
+> 本项目是一个开源的Minecraft服务器整合包，其中包含的各个插件均为其各自版权所有者的知识产权。
+> 本项目不对所包含插件的合法性、功能性或适用性作出任何明示或暗示的保证。
+> 用户在使用本整合包时，应自行承担相关风险，并遵守各插件的使用许可协议。
+> 本项目不提供任何关于插件可用性、稳定性或兼容性的承诺或担保。
 
 ## 🔗 相关链接
 
