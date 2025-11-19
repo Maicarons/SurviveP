@@ -1,92 +1,88 @@
-# 🎮 SurviveX 服务端介绍
+# SurviveP - 基于Leaves的Minecraft生存服务器
 
-## ✨ 核心功能
-- 💡 **基于 Leaves 1.21.4 核心版本**，运行环境需 Java 21+，提供丰富功能
-- 🏠 **基础功能**：Ess（含 home、tpa 等基础插件）、TAB、RTP、MOTD、登录、经济、领地、菜单、皮肤、权限、假人、跨版本、占位符、预加载、世界管理、箱子商店、睡觉时间管理、种子保护、反X射线、数据分析
-- 🔥 **进阶功能**：职业、更多附魔、
-- 🛡️ **安全功能**：VerifyMC 白名单管理（网页注册、自动/手动审核、封禁系统、多主题界面、邮件验证、MySQL支持）
+![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21.8-blue)
+![License](https://img.shields.io/github/license/Maicarons/SurviveP)
 
-> [!TIP]
-> 💡 重要提示
-> 
-> 若基础插件使用 `CMI` 插件, 请进行以下操作:
-> 
-> 1. 📁 将 `CMI` 插件上传至 `plugins` 目录下
-> 2. 🔄 将 `plugins` 目录下的 `EssentialsX.jar` 重命名为 `EssentialsX.jar[disabled]`
-> 3. 🔄 将 `plugins` 目录下的 `CMIEInjector.jar[disabled]` 重命名为 `CMIEInjector.jar`
-> 4. 🔄 将 `plugins\PlayerMenu\menu` 目录下的 `home_select.yml[disabled]` 重命名为 `home_select.yml`(需覆盖原文件)
+## 🎮 简介
 
-## 📋 特性与说明
+SurviveP 是一个基于 `Leaves` 核心构建的功能丰富的 Minecraft 生存服务器。它集成了众多实用插件，提供了完整的生存游戏体验，包括家园系统、经济系统、领地保护、传送系统、职业系统等。
 
-> [!TIP]
-> 📚 详细文档
-> 
-> [📚 详细内容请见 SurviveX 在线文档](https://docs.Kite.cc/zh_Hans/survivex/guide/v1)
+SurviveP 是 [SurviveX](https://github.com/KiteMC/SurviveX) 的分支，致力于打造腐竹小白也能一键上手开服的服务器整合包。
 
-### 🛠️ 环境搭建
+## 📋 环境要求
 
-- 🎯 **核心版本**：Leaves 1.21.4
+- 🎯 **核心版本**：Leaves 1.21.8
 - ☕ **运行环境**：Java 21+
 
-### 🔌 插件生态
+## 🚀 快速开始
 
-| 插件类型       | 插件名称及版本                                                                  |
-|----------------|-------------------------------------------------------------------------------|
-| 📄 Paper 插件     | ExcellentEnchants (5.2.1), MiniMOTD (2.2.0), nightcore (2.8.0)             |
-| 🔧 Bukkit 插件    | AntiPopup (12.1), AntiSeedCracker (1.2.1), AuthMe (5.6.0-bCUSTOM), BanItem (3.7), BetterRTP (3.6.13), CMILib (1.5.6.6), Chunky (1.4.40), CommandAPI (10.1.2), Essentials (2.21.2), Jobs (5.2.6.3), LuckPerms (5.5.10), Orebfuscator (5.5.4), PlaceholderAPI (2.11.6), Plan (5.6 build 2965), PlayerDataRollback (2.1.6-GA), PlayerMenu (1.6.6), ProtocolLib (5.4.0), QuickShop-Hikari (6.2.0.10), Residence (6.0.0.1), SkinsRestorer (15.8.0), TAB (5.2.5), Vault (1.7.3-b131), VerifyMC (1.2.1), ViaVersion (5.4.2), WorldManager (1.4.1)                                                         |
+### 一键开服平台：
 
-### 🚀 快速启动
+请上传整合包后，选中`leaves.jar`文件作为你的启动核心。
 
+### Linux/MacOS:
 ```bash
-# 启动（服务器需 Java21 环境）
-./start.sh
+cd shell
+./start_auto.sh # 自动获取系统配置并选择合适的参数运行。
+# or ./start.sh 如果你想保持每次配置是不变的，请修改start.sh。
+```
+### Windows:
+```powershell
+cd shell
+.\start.cmd
 ```
 
-> [!TIP]
-> 💻 Windows 用户
-> 
-> 若使用 Windows 系统, 请重命名为 `start.bat` 后启动
+## 🔧 插件生态
+
+插件及注意事项详见 [插件列表](plugin.md)。
+
+## ⭐ 特色功能
+
+- [x] Windows/Linux/MacOS 启动脚本  
+- [x] GUI 配置修改
+- [ ] 预构建多场景地图  
+
+## 🔧 配置编辑器
+
+项目提供图形化配置工具，方便管理员修改服务器设置：
+
+### 简易配置编辑器
+位于根目录的 `simple_leaves_editor.py` 提供了对关键配置项的快速修改功能，适合新手管理员使用。
+
+### 完整配置编辑器
+`edit_leaves_config.py` 是一个功能完整的配置编辑器（开发中），支持对 Leaves 服务端所有配置文件的全面修改。
+
+### 使用方法
+```bash
+# 运行简易配置编辑器
+python3 simple_leaves_editor.py
+
+# 运行完整配置编辑器
+python3 edit_leaves_config.py
+```
+
+### 使用CMI替代EssentialsX（可选）
+
+如果希望使用CMI作为主要管理插件，请按以下步骤操作：
+
+1. 📁 确保 `CMI` 插件在 `plugins` 目录下
+2. 🔄 将 `plugins` 目录下的 `EssentialsX.jar` 重命名为 `EssentialsX.jar[disabled]`
+3. 🔄 将 `plugins` 目录下的 `CMIEInjector.jar[disabled]` 重命名为 `CMIEInjector.jar`
+4. 🔄 将 `plugins/PlayerMenu/menu` 目录下的 `home_select.yml[disabled]` 重命名为 `home_select.yml`（需覆盖原文件）
 
 ## 📄 许可证
-[GPLv3 License](https://github.com/KiteMC/SurviveX/blob/ver/1.21.5/LICENSE) © 2025 [KiteMC](https://github.com/KiteMC/SurviveX)
+
+本项目采用 [GPLv3 License](LICENSE) 开源协议。
+
+Project forked from [SurviveX](https://github.com/KiteMC/SurviveX) with [GPLv3 License](https://github.com/KiteMC/SurviveX/LICENSE).
+
+## 🔗 相关链接
+
+- 📥 [GitHub 仓库](https://github.com/Maicarons/SurviveP)
+- ⚡ [下载最新整合包（Github）](https://github.com/Maicarons/SurviveP/releases/latest/download/SurviveP.zip) 
 
 ## ⭐ Star History
-> [!TIP]
-> 🌟 支持我们
-> 
-> 如果本项目对您有帮助，或者您关注本项目的未来发展，请给项目 Star，谢谢 
 
-<div align="center">
+如果本项目对您有帮助，请给我们一个Star！
 
-[![Star History Chart](https://api.star-history.com/svg?repos=KiteMC/SurviveX&type=Date)](https://www.star-history.com/#KiteMC/SurviveX&Date)
-
-</div>
-
-## 📸 截图展示
-
-### 🏠 主界面
-![主界面](https://survivex.cn-nb1.rains3.com/guide/v1/x2.png)
-
-### 🚀 传送菜单
-![传送菜单](https://survivex.cn-nb1.rains3.com/guide/v1/x4.png)
-
-### ⚡ 更多附魔
-![更多附魔](https://survivex.cn-nb1.rains3.com/guide/v1/x3.png)
-
-### 💼 职业系统
-![职业](https://survivex.cn-nb1.rains3.com/guide/v1/x5.png)
-
-### 🎭 皮肤菜单
-![皮肤菜单](https://survivex.cn-nb1.rains3.com/guide/v1/x6.png)
-
-### 🏡 家管理
-![家管理](https://survivex.cn-nb1.rains3.com/guide/v1/x7.png)
-
-### 😴 自动调整睡觉所需时间(需安装`CMI`插件)
-![自动调整睡觉所需时间](https://survivex.cn-nb1.rains3.com/guide/v1/x8.png)
-
-## 📥 下载地址
-
-🔗 **[Github仓库](https://github.com/KiteMC/SurviveX)**
-
-⚡ **[Github代理下载地址](https://gh-proxy.com/github.com/KiteMC/SurviveX/archive/refs/heads/ver/1.21.8.zip)**
+[![Star History Chart](https://api.star-history.com/svg?repos=Maicarons/SurviveP&type=Date)](https://www.star-history.com/#Maicarons/SurviveP&Date)
