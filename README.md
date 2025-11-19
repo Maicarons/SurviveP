@@ -3,6 +3,10 @@
 ![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21.8-blue)
 ![License](https://img.shields.io/github/license/Maicarons/SurviveP)
 
+## 🌐 语言导航
+
+[:us: English](README_en.md) | [:cn: Chinese](README.md) | [:jp: Japanese](README_ja.md) | [:ru: Russian](README_ru.md) | [:fr: French](README_fr.md) | [:de: German](README_de.md) | [:es: Spanish](README_es.md) | [:kr: Korean](README_ko.md)
+
 ## 🎮 简介
 
 SurviveP 是一个基于 `Leaves` 核心构建的功能丰富的 Minecraft 生存服务器。它集成了众多实用插件，提供了完整的生存游戏体验，包括家园系统、经济系统、领地保护、传送系统、职业系统等。
