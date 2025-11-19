@@ -47,27 +47,8 @@ jobs:
       - name: Create zip package
         if: steps.version.outputs.release == 'true'
         run: |
-          # 创建不包含 .git 和 .github 目录的 zip 包
-          echo "Version from step: ${{ steps.version.outputs.version }}"
-          VERSION=${{ steps.version.outputs.version }}
-          ZIP_NAME="Survive-${{ steps.version.outputs.version }}.zip"
-          echo "Creating $ZIP_NAME"
-          
-          # 创建临时目录并复制文件
-          mkdir -p temp_package
-          # 复制所有文件和目录，排除 .git 和 .github
-          rsync -av --exclude='.git' --exclude='.github' --exclude='temp_package' --exclude='.gitignore' . temp_package/
-          
-          # 创建 zip 包
-          cd temp_package
-          zip -r "../$ZIP_NAME" .
-          cd ..
-          
-          # 显示创建的文件
-          ls -la ../$ZIP_NAME || echo "File not found: ../$ZIP_NAME"
-          
-          # 清理临时目录
-          rm -rf temp_package
+          chmod +x ./script/pack.sh
+          ./script/pack.sh
 
       - name: Create Release
         if: steps.version.outputs.release == 'true'
@@ -89,6 +70,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: Survive-${{ steps.version.outputs.version }}.zip
-          asset_name: Survive-${{ steps.version.outputs.version }}.zip
+          asset_path: SurviveP.zip
+          asset_name: SurviveP.zip
           asset_content_type: application/zip

@@ -30,7 +30,7 @@ class SimpleLeavesEditor:
     def create_widgets(self):
         # 创建主框架
         main_frame = ttk.Frame(self.root, padding="10")
-        main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        main_frame.grid(row=0, column=0, sticky="nesw")
         
         # 配置标题
         title_label = ttk.Label(main_frame, text="Leaves 服务器配置", font=("Arial", 16, "bold"))
@@ -38,7 +38,7 @@ class SimpleLeavesEditor:
         
         # 创建配置区域
         config_frame = ttk.LabelFrame(main_frame, text="重要配置项", padding="10")
-        config_frame.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 20))
+        config_frame.grid(row=1, column=0, columnspan=2, sticky="nesw", pady=(0, 20))
         
         # 自动更新设置
         ttk.Label(config_frame, text="自动更新:").grid(row=0, column=0, sticky=tk.W, pady=5)
@@ -109,7 +109,7 @@ class SimpleLeavesEditor:
         self.status_var = tk.StringVar()
         self.status_var.set("就绪")
         status_bar = ttk.Label(main_frame, textvariable=self.status_var, relief=tk.SUNKEN, anchor=tk.W)
-        status_bar.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(10, 0))
+        status_bar.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(10, 0))
         
         # 配置网格权重
         self.root.columnconfigure(0, weight=1)
