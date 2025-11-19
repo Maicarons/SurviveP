@@ -1,7 +1,7 @@
 # SurviveP - 基于Leaves的Minecraft生存服务器整合包
 
-![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21.8-blue)
-![License](https://img.shields.io/github/license/Maicarons/SurviveP)
+![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21.8-blue?style=flat-square)
+![License](https://img.shields.io/github/license/Maicarons/SurviveP?style=flat-square)
 
 ## 🌐 语言导航
 
