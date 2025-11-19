@@ -1,184 +1,207 @@
-# Configuration file for Leaves.
+# Leaves服务端配置文件，用于配置服务器的各种功能和优化选项
 
-config-version: 6
+config-version: 6  # 配置文件版本号，请勿随意更改
+
 settings:
+  # 杂项设置
   misc:
+    # 自动更新设置
     auto-update:
-      enable: false
-      download-source: application
-      allow-experimental: false
-      time:
+      enable: false                    # 是否启用自动更新功能
+      download-source: application     # 下载源：application(应用程序)/github(GitHub)
+      allow-experimental: false        # 是否允许下载实验性版本
+      time:                            # 自动更新检查时间列表
       - '14:00'
       - '2:00'
+    
+    # 额外Yggdrasil认证服务设置（用于第三方登录）
     extra-yggdrasil-service:
-      enable: false
-      login-protect: false
-      urls:
+      enable: false                              # 是否启用额外的Yggdrasil服务
+      login-protect: false                       # 是否启用登录保护
+      urls:                                      # Yggdrasil服务地址列表
       - https://url.with.authlib-injector-yggdrasil
-    disable-method-profiler: true
-    no-chat-sign: true
-    dont-respond-ping-before-start-fully: true
-    server-lang: en_us
-    server-mod-name: Leaves
-    bstats-privacy-mode: false
-    force-minecraft-command: false
-    leaves-packet-event: true
+    
+    disable-method-profiler: true              # 禁用方法分析器（提升性能）
+    no-chat-sign: true                         # 禁用聊天签名验证
+    dont-respond-ping-before-start-fully: true # 服务器完全启动前不响应Ping请求
+    server-lang: en_us                         # 服务器语言设置
+    server-mod-name: Leaves                    # 服务器MOD名称（显示在客户端）
+    bstats-privacy-mode: false                 # 是否启用bStats隐私模式
+    force-minecraft-command: false             # 强制使用原版Minecraft命令
+    leaves-packet-event: true                  # 启用Leaves数据包事件
+  
+  # 游戏机制修改设置
   modify:
+    # 假人玩家设置
     fakeplayer:
-      enable: false
-      unable-fakeplayer-names:
+      enable: false                           # 是否启用假人功能
+      unable-fakeplayer-names:                # 禁止使用的假人名称列表
       - player-name
-      limit: 10
-      prefix: ''
-      suffix: ''
-      regen-amount: 0.0
-      always-send-data: true
-      resident-fakeplayer: false
-      open-fakeplayer-inventory: false
-      skip-sleep-check: false
-      spawn-phantom: false
-      use-action: true
-      modify-config: false
-      manual-save-and-load: false
-      cache-skin: false
-      tick-type: NETWORK
+      limit: 10                               # 最大假人数量限制
+      prefix: ''                              # 假人名称前缀
+      suffix: ''                              # 假人名称后缀
+      regen-amount: 0.0                       # 假人生命值回复量
+      always-send-data: true                  # 是否始终发送假人数据
+      resident-fakeplayer: false              # 是否保留常驻假人
+      open-fakeplayer-inventory: false        # 是否允许打开假人背包
+      skip-sleep-check: false                 # 假人是否跳过睡眠检查
+      spawn-phantom: false                    # 假人是否生成幻翼
+      use-action: true                        # 是否使用动作控制假人
+      modify-config: false                    # 是否允许修改假人配置
+      manual-save-and-load: false             # 是否手动保存和加载假人数据
+      cache-skin: false                       # 是否缓存假人皮肤
+      tick-type: NETWORK                      # 假人刻类型：NETWORK(网络)/NORMAL(正常)
+    
+    # 鞘翅飞行设置
     elytra-aeronautics:
-      no-chunk-load: false
-      no-chunk-height: 500.0
-      no-chunk-speed: -1.0
-      message: true
-      message-start: Flight enter cruise mode
-      message-end: Flight exit cruise mode
-    redstone-shears-wrench: true
-    budding-amethyst-can-push-by-piston: false
-    spectator-dont-get-advancement: false
-    stick-change-armorstand-arm-status: true
-    snowball-and-egg-can-knockback-player: true
-    flatten-triangular-distribution: false
-    player-operation-limiter: false
-    renewable-elytra: -1.0
-    stackable-shulker-boxes: 'false'
-    force-void-trade: false
-    mc-technical-survival-mode: true
-    return-nether-portal-fix: false
-    use-vanilla-random: false
-    fix-update-suppression-crash: true
-    bedrock-break-list: false
-    disable-distance-check-for-use-item: false
-    no-feather-falling-trample: false
-    shared-villager-discounts: false
-    disable-check-out-of-order-command: false
-    despawn-enderman-with-block: false
-    creative-no-clip: false
-    shave-snow-layers: true
-    ignore-lc: false
-    disable-packet-limit: false
-    lava-riptide: false
-    no-block-update-command: false
-    no-tnt-place-update: false
-    raider-die-skip-self-raid-check: false
-    container-passthrough: false
-    avoid-anvil-too-expensive: false
-    bow-infinity-fix: false
-    hopper-counter: false
-    spider-jockeys-drop-gapples: -1.0
-    renewable-deepslate: false
-    renewable-sponges: false
-    renewable-coral: 'FALSE'
-    fast-resume: false
-    force-peaceful-mode-switch:
-      tick: -1
-      types:
+      no-chunk-load: false                   # 是否禁止区块加载
+      no-chunk-height: 500.0                 # 无区块加载高度限制
+      no-chunk-speed: -1.0                   # 无区块加载速度限制(-1为无限制)
+      message: true                          # 是否显示消息提示
+      message-start: Flight enter cruise mode  # 进入巡航模式提示信息
+      message-end: Flight exit cruise mode     # 退出巡航模式提示信息
+    
+    redstone-shears-wrench: true             # 是否允许剪刀作为红石扳手使用
+    budding-amethyst-can-push-by-piston: false  # 芽生紫水晶是否可以被活塞推动
+    spectator-dont-get-advancement: false    # 旁观者模式是否不获得进度
+    stick-change-armorstand-arm-status: true # 是否允许木棍切换盔甲架手臂状态
+    snowball-and-egg-can-knockback-player: true  # 雪球和鸡蛋是否能击退玩家
+    flatten-triangular-distribution: false   # 是否平滑三角分布
+    player-operation-limiter: false          # 是否启用玩家操作限制器
+    renewable-elytra: -1.0                   # 可再生鞘翅概率(-1为禁用)
+    stackable-shulker-boxes: 'false'         # 潜影盒是否可堆叠(false/true/keep)
+    force-void-trade: false                  # 是否强制虚空交易
+    mc-technical-survival-mode: true         # 是否启用MC技术生存模式
+    return-nether-portal-fix: false          # 是否修复返回下界传送门
+    use-vanilla-random: false                # 是否使用原版随机数生成器
+    fix-update-suppression-crash: true       # 是否修复更新抑制崩溃
+    bedrock-break-list: false                # 是否启用基岩破坏列表
+    disable-distance-check-for-use-item: false  # 是否禁用使用物品的距离检查
+    no-feather-falling-trample: false        # 没有摔落保护附魔是否防止踩踏作物
+    shared-villager-discounts: false         # 是否共享村民折扣
+    disable-check-out-of-order-command: false   # 是否禁用乱序命令检查
+    despawn-enderman-with-block: false       # 是否清除持有方块的末影人
+    creative-no-clip: false                  # 创造模式是否无碰撞检测
+    shave-snow-layers: true                  # 是否允许削掉雪层
+    ignore-lc: false                         # 是否忽略LC(可能指液体检查)
+    disable-packet-limit: false              # 是否禁用数据包限制
+    lava-riptide: false                      # 岩浆是否触发激流附魔
+    no-block-update-command: false           # 是否禁用方块更新命令
+    no-tnt-place-update: false               # 放置TNT时不触发更新
+    raider-die-skip-self-raid-check: false   # 袭击者死亡时跳过自身袭击检查
+    container-passthrough: false             # 是否允许容器穿透
+    avoid-anvil-too-expensive: false         # 是否避免铁砧过于昂贵
+    bow-infinity-fix: false                  # 是否修复无限附魔弓箭bug
+    hopper-counter: false                    # 是否启用漏斗计数器
+    spider-jockeys-drop-gapples: -1.0        # 蜘蛛骑士掉落金苹果概率(-1为禁用)
+    renewable-deepslate: false               # 是否可再生深板岩
+    renewable-sponges: false                 # 是否可再生海绵
+    renewable-coral: 'FALSE'                 # 是否可再生珊瑚(FALSE/TRUE/keep)
+    fast-resume: false                       # 是否启用快速恢复
+    force-peaceful-mode-switch:              # 强制和平模式开关设置
+      tick: -1                               # 刻间隔(-1为禁用)
+      types:                                 # 生物类型列表
       - BLAZE
       - WITHER
       - SHULKER
       - WARDEN
-    disable-vault-blacklist: false
+    disable-vault-blacklist: false           # 是否禁用Vault黑名单
+    
+    # 原版Minecraft旧版行为设置
     minecraft-old:
-      block-updater:
-        instant-block-updater-reintroduced: false
-        cce-update-suppression: false
-        redstone-wire-dont-connect-if-on-trapdoor: false
-        old-block-entity-behaviour: false
-      shears-in-dispenser-can-zero-amount: false
-      armor-stand-cant-kill-by-mob-projectile: false
-      villager-infinite-discounts: false
-      copper-bulb-1gt-delay: false
-      crafter-1gt-delay: false
-      zero-tick-plants: false
-      rng-fishing: false
-      allow-grindstone-overstacking: false
-      allow-entity-portal-with-passenger: true
-      disable-gateway-portal-entity-ticking: false
-      disable-LivingEntity-ai-step-alive-check: false
-      fix-fortress-mob-spawn: false
-      old-hopper-suck-in-behavior: false
-      revert-raid-changes:
-        allow-bad-omen-trigger-raid: false
-        give-bad-omen-when-kill-patrol-leader: false
-        skip-height-check: false
-      allow-anvil-destroy-item-entities: false
-      string-tripwire-hook-duplicate: false
+      block-updater:                       # 方块更新器设置
+        instant-block-updater-reintroduced: false     # 是否重新引入瞬时方块更新器
+        cce-update-suppression: false                 # 是否启用CCE更新抑制
+        redstone-wire-dont-connect-if-on-trapdoor: false  # 红石线是否不在活板门上连接
+        old-block-entity-behaviour: false             # 是否使用旧行为的方块实体
+      
+      shears-in-dispenser-can-zero-amount: false      # 发射器中的剪刀是否可使数量归零
+      armor-stand-cant-kill-by-mob-projectile: false  # 盔甲架是否不能被怪物弹射物杀死
+      villager-infinite-discounts: false              # 村民是否可无限折扣
+      copper-bulb-1gt-delay: false                    # 铜灯是否有1游戏刻延迟
+      crafter-1gt-delay: false                        # 制作台是否有1游戏刻延迟
+      zero-tick-plants: false                         # 是否启用零刻植物生长
+      rng-fishing: false                              # 是否使用随机数钓鱼
+      allow-grindstone-overstacking: false            # 是否允许砂轮超量堆叠
+      allow-entity-portal-with-passenger: true        # 是否允许带乘客的实体通过传送门
+      disable-gateway-portal-entity-ticking: false    # 是否禁用传送门实体刻
+      disable-LivingEntity-ai-step-alive-check: false # 是否禁用生物AI步骤存活检查
+      fix-fortress-mob-spawn: false                   # 是否修复要塞怪物生成
+      old-hopper-suck-in-behavior: false              # 是否使用旧版漏斗吸入行为
+      revert-raid-changes:                            # 恢复袭击改动设置
+        allow-bad-omen-trigger-raid: false            # 是否允许不祥之兆触发袭击
+        give-bad-omen-when-kill-patrol-leader: false  # 击杀巡逻队长时是否给予不祥之兆
+        skip-height-check: false                      # 是否跳过高度检查
+      allow-anvil-destroy-item-entities: false        # 是否允许铁砧破坏物品实体
+      string-tripwire-hook-duplicate: false           # 细线与绊线钩是否可重复
+  
+  # 性能优化设置
   performance:
-    optimized-dragon-respawn: false
-    dont-send-useless-entity-packets: true
-    enable-suffocation-optimization: true
-    check-spooky-season-once-an-hour: true
-    inactive-goal-selector-disable: false
-    reduce-entity-allocations: true
-    cache-climb-check: true
-    reduce-chuck-load-and-lookup: true
-    cache-ignite-odds: true
-    faster-chunk-serialization: true
-    skip-secondary-POI-sensor-if-absent: true
-    store-mob-counts-in-array: true
-    optimize-noise-generation: false
-    optimize-sun-burn-tick: true
-    optimized-CubePointRange: true
-    check-frozen-ticks-before-landing-block: true
-    skip-entity-move-if-movement-is-zero: true
-    skip-cloning-advancement-criteria: false
-    skip-negligible-planar-movement-multiplication: true
-    fix-villagers-dont-release-memory: false
-    remove:
-      tick-guard-lambda: true
-      damage-lambda: true
+    optimized-dragon-respawn: false          # 是否优化末影龙重生
+    dont-send-useless-entity-packets: true   # 不发送无用的实体数据包
+    enable-suffocation-optimization: true    # 启用窒息优化
+    check-spooky-season-once-an-hour: true   # 每小时检查一次万圣节季节
+    inactive-goal-selector-disable: false    # 是否禁用非活动目标选择器
+    reduce-entity-allocations: true          # 减少实体分配
+    cache-climb-check: true                  # 缓存攀爬检查
+    reduce-chuck-load-and-lookup: true       # 减少区块加载和查找
+    cache-ignite-odds: true                  # 缓存点燃几率
+    faster-chunk-serialization: true         # 更快的区块序列化
+    skip-secondary-POI-sensor-if-absent: true  # 如果没有次要POI传感器则跳过
+    store-mob-counts-in-array: true          # 将怪物计数存储在数组中
+    optimize-noise-generation: false         # 优化噪声生成
+    optimize-sun-burn-tick: true             # 优化阳光灼烧刻
+    optimized-CubePointRange: true           # 优化立方体点范围
+    check-frozen-ticks-before-landing-block: true  # 在着陆方块前检查冻结刻
+    skip-entity-move-if-movement-is-zero: true     # 如果移动为零则跳过实体移动
+    skip-cloning-advancement-criteria: false       # 是否跳过克隆进度标准
+    skip-negligible-planar-movement-multiplication: true  # 跳过可忽略的平面运动乘法
+    fix-villagers-dont-release-memory: false       # 修复村民不释放内存问题
+    remove:                                          # 移除不必要的功能以提升性能
+      tick-guard-lambda: true                        # 移除刻守卫lambda表达式
+      damage-lambda: true                            # 移除伤害lambda表达式
+  
+  # 协议支持设置
   protocol:
-    bladeren:
-      protocol: true
-      mspt-sync-protocol: false
-      mspt-sync-tick-interval: 20
-    syncmatica:
-      enable: false
-      quota: false
-      quota-limit: 40000000
-    pca:
-      pca-sync-protocol: false
-      pca-sync-player-entity: OPS
-    appleskin:
-      protocol: false
-      sync-tick-interval: 20
-    servux:
-      structure-protocol: false
-      entity-protocol: false
-      hud-metadata-protocol: false
-      hud-metadata-protocol-share-seed: true
-    bbor-protocol: false
-    jade-protocol: false
-    alternative-block-placement: NONE
-    xaero-map-protocol: false
-    xaero-map-server-id: 256842074
-    leaves-carpet-support: false
-    lms-paster-protocol: false
-    rei-server-protocol: false
+    bladeren:                                    # BladeRen协议设置
+      protocol: true                             # 是否启用协议
+      mspt-sync-protocol: false                  # 是否启用MSPT同步协议
+      mspt-sync-tick-interval: 20                # MSPT同步刻间隔
+    syncmatica:                                  # Syncmatica协议设置
+      enable: false                              # 是否启用Syncmatica
+      quota: false                               # 是否启用配额限制
+      quota-limit: 40000000                      # 配额限制大小(字节)
+    pca:                                         # PCA协议设置
+      pca-sync-protocol: false                   # 是否启用PCA同步协议
+      pca-sync-player-entity: OPS                # PCA同步玩家实体权限(OPS/ALL/NONE)
+    appleskin:                                   # AppleSkin协议设置
+      protocol: false                            # 是否启用AppleSkin协议
+      sync-tick-interval: 20                     # 同步刻间隔
+    servux:                                      # Servux协议设置
+      structure-protocol: false                  # 是否启用结构协议
+      entity-protocol: false                     # 是否启用实体协议
+      hud-metadata-protocol: false               # 是否启用HUD元数据协议
+      hud-metadata-protocol-share-seed: true     # HUD元数据协议是否共享种子
+    bbor-protocol: false                         # 是否启用BBOR协议
+    jade-protocol: false                         # 是否启用Jade协议
+    alternative-block-placement: NONE            # 替代方块放置模式(NONE/CARPET/CLIENT/LITEMATICA)
+    xaero-map-protocol: false                    # 是否启用Xaero地图协议
+    xaero-map-server-id: 256842074               # Xaero地图服务器ID
+    leaves-carpet-support: false                 # 是否启用Leaves Carpet支持
+    lms-paster-protocol: false                   # 是否启用LMS粘贴协议
+    rei-server-protocol: false                   # 是否启用REI服务端协议
+  
+  # 区域文件格式设置
   region:
-    format: ANVIL
-    linear:
-      version: V2
-      auto-convert-anvil-to-linear: false
-      flush-max-threads: 6
-      flush-delay-ms: 100
-      use-virtual-thread: true
-      compression-level: 1
+    format: ANVIL                                # 区域文件格式(ANVIL/LINEAR)
+    linear:                                      # LINEAR格式设置
+      version: V2                                # 版本号
+      auto-convert-anvil-to-linear: false        # 是否自动转换ANVIL到LINEAR
+      flush-max-threads: 6                       # 刷新最大线程数
+      flush-delay-ms: 100                        # 刷新延迟(毫秒)
+      use-virtual-thread: true                   # 是否使用虚拟线程
+      compression-level: 1                       # 压缩等级
+  
+  # 修复相关设置
   fix:
-    vanilla-hopper: false
+    vanilla-hopper: false                        # 是否修复原版漏斗问题
