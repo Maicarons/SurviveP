@@ -1,13 +1,13 @@
 release: false
 version: "1.0"
 release_notes: |
-## v1.0
-  SurviveP 1.0 版本发布！  
-  - 初始版本，基于 Leaves 1.21.8 核心  
-  - 集成多种实用插件，提供完整的生存游戏体验  
-  - 支持 Windows/Linux/MacOS 启动脚本  
-  - 提供 GUI 配置修改工具，方便用户自定义服务器设置  
-  - 优化性能，提升服务器稳定性  
-  - 修复已知问题，提升用户体验  
-  - 更多功能正在开发中...  
-**Full Changelog**: https://github.com/Maicarons/SurviveP/commits/1.0
+  ## v1.0
+    SurviveP 1.0 版本发布！  
+    - 初始版本，基于 Leaves 1.21.8 核心  
+    - 集成多种实用插件，提供完整的生存游戏体验  
+    - 支持 Windows/Linux/MacOS 启动脚本  
+    - 提供 GUI 配置修改工具，方便用户自定义服务器设置  
+    - 优化性能，提升服务器稳定性  
+    - 修复已知问题，提升用户体验  
+    - 更多功能正在开发中...  
+  **Full Changelog**: https://github.com/Maicarons/SurviveP/commits/1.0
